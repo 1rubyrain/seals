@@ -41,3 +41,5 @@ jobs:
         with:
           name: Artifacts
           path: build/libs/
+- name: Create GitHub Release
+  uses: pipe-cd/actions-gh-release@v2.6.0
