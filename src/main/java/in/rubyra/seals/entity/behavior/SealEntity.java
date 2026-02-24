@@ -1,5 +1,6 @@
 package in.rubyra.seals.entity.behavior;
 
+import in.rubyra.seals.SealsMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.mob.CreeperEntity;
@@ -133,8 +134,7 @@ public class SealEntity extends AnimalEntity {
     }
 
     protected void dropItems() {
-        // TODO: CONFIG FOR SEAL DROPPING SPONGE
-        if (false && random.nextInt(5) == 0) {
+        if (SealsMod.SEALS_CONFIG.dropSpongeOnDeath && random.nextInt(5) == 0) {
             dropItem(Block.SPONGE.id, 1);
         }
     }

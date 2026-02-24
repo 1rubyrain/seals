@@ -26,6 +26,9 @@
       "in.rubyra.seals.texture.TextureListener"
     ],
     "stationapi:event_bus_server": [
+    ],
+    "gcapi3": [
+      "in.rubyra.seals.SealsMod"
     ]
   },
   "mixins": [

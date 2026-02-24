@@ -1,5 +1,6 @@
 - wiktor said make the seal squish when you land on it
 - check if dapper seals replicate properly
+- check if sneeze replicate properly
+- check if option for seals dropping sponges replicate properly
 - add seals naturally spawning
-- option for seals dropping sponges
 - maybe random hat colour?
