@@ -19,6 +19,7 @@
   "entrypoints": {
     "stationapi:event_bus": [
       "in.rubyra.seals.entity.EntityListener",
+      "in.rubyra.seals.entity.EntitySpawnListener",
       "in.rubyra.seals.SealsMod"
     ],
     "stationapi:event_bus_client": [

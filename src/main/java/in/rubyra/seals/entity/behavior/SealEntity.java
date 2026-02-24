@@ -63,9 +63,22 @@ public class SealEntity extends AnimalEntity {
         int spawnX = MathHelper.floor(x);
         int spawnY = MathHelper.floor(boundingBox.minY);
         int spawnZ = MathHelper.floor(z);
-        return world.getBlockId(spawnX, spawnY - 1, spawnZ) == Block.SAND.id &&
-               //world.dimension.biomeSource.getBiome(spawnX, spawnZ) &&
-               world.getBrightness(spawnX, spawnY, spawnZ) > 8 &&
+
+        // broken atm
+        int floorBlockId = world.getBlockId(spawnX, spawnY - 1, spawnZ);
+        if (floorBlockId != Block.SAND.id) {
+
+            // allow spawning on grass if snow layer above
+            if (floorBlockId != Block.GRASS.id) {
+                return false;
+            }
+            int collidingBlockId = world.getBlockId(spawnX, spawnY, spawnZ);
+            if (collidingBlockId != Block.SNOW.id) {
+                return false;
+            }
+        }
+
+        return world.getBrightness(spawnX, spawnY, spawnZ) > 5 &&
                world.canSpawnEntity(boundingBox);
     }
 
