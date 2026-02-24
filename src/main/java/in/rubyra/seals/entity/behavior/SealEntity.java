@@ -132,9 +132,12 @@ public class SealEntity extends AnimalEntity {
         return 1000;
     }
 
-    //protected int getDroppedItemId() {
-    //    return Block.WOOL.id;
-    //}
+    protected void dropItems() {
+        // TODO: CONFIG FOR SEAL DROPPING SPONGE
+        if (false && random.nextInt(5) == 0) {
+            dropItem(Block.SPONGE.id, 1);
+        }
+    }
 
     public void sneeze() {
         world.playSound(x, y, z, "seals:mob.sealsneeze", 4.0F,
