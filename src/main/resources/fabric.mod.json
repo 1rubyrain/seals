@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "seals",
+  "version": "${version}",
+
+  "name": "seals",
+  "description": "yaaay seals",
+  "authors": [
+    "ruby rain"
+  ],
+  "contact": {
+    "homepage": "https://github.com/1rubyrain"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/seals/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "stationapi:event_bus": [
+      "in.rubyra.seals.entity.EntityListener",
+      "in.rubyra.seals.SealsMod"
+    ],
+    "stationapi:event_bus_client": [
+      "in.rubyra.seals.client.EntityRendererListener",
+      "in.rubyra.seals.texture.TextureListener"
+    ],
+    "stationapi:event_bus_server": [
+    ]
+  },
+  "mixins": [
+    "seals.mixins.json"
+  ],
+
+  "depends": {
+    "minecraft": "1.0.0-beta.7.3"
+  }
+}
