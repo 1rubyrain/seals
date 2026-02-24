@@ -3,6 +3,8 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
+# thanks matthewperiut
+
 name: build
 on: [pull_request, push]
 
