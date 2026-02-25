@@ -21,9 +21,11 @@ public class PlayerEntityMixin extends LivingEntity {
         super(world);
     }
 
+    @Unique
     private double pendingVelocity = 0;
 
     // returns new velocity (or 0 if no seal)
+    @Unique
     private double checkSealCollision() {
 
         var EntList = world.getEntities(this, boundingBox.expand(0.275, 0.5, 0.275));

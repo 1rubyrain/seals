@@ -17,7 +17,7 @@ public class SealEntity extends AnimalEntity {
         super(world);
 
         texture = "seals:textures/entities/seal.png";
-        setBoundingBoxSpacing(0.5F, 0.35F);
+        setBoundingBoxSpacing(0.7F, 0.4F);
 
         maxHealth = 30;
         health = 15;
@@ -165,25 +165,34 @@ public class SealEntity extends AnimalEntity {
 
     public boolean interact(PlayerEntity player) {
         ItemStack selectedItem = player.inventory.getSelectedItem();
-        if (selectedItem == null)
+        if (selectedItem == null) {
             return false;
+        }
 
-        if (selectedItem.itemId == Item.FEATHER.id)
-        {
+        if (selectedItem.itemId == Item.FEATHER.id) {
             player.inventory.removeStack(player.inventory.selectedSlot, 1);
             if (!world.isRemote)
                 sneeze();
             return true;
         }
 
-        if (selectedItem.itemId == Item.RAW_FISH.id)
-        {
+        if (selectedItem.itemId == Item.RAW_FISH.id) {
             if (health > 0 && health < maxHealth) {
                 player.inventory.removeStack(player.inventory.selectedSlot, 1);
                 health++;
                 hearts = maxHealth / 2;
             }
             return true;
+        }
+
+        if (SealsMod.SEALS_CONFIG.blackWoolGivesSealsHats) {
+            if (selectedItem.itemId == Block.WOOL.id && selectedItem.getDamage() == 15) {// black
+                if (!isDapper()) {
+                    player.inventory.removeStack(player.inventory.selectedSlot, 1);
+                    setDapper(true);
+                    return true;
+                }
+            }
         }
 
         return false;
