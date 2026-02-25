@@ -27,3 +27,7 @@ i made this for fun but feel free to open any issues and i will see if i can hel
 
 </details>
 
+## credits
+ideas: layla & wiktor
+
+sounds: [National Geographic](https://www.instagram.com/p/B9kDyYuFgmn) & [ViralHog](https://www.youtube.com/watch?v=XI-IcTpHpDg)
