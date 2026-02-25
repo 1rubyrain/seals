@@ -8,12 +8,12 @@ import net.modificationstation.stationapi.api.event.worldgen.biome.BiomeModifica
 public class EntitySpawnListener {
     @EventListener
     public void registerEntitySpawn(BiomeModificationEvent event) {
-        if (event.biome == Biome.SHRUBLAND ||
+        if (event.biome == Biome.FOREST ||
+            event.biome == Biome.SHRUBLAND ||
             event.biome == Biome.TAIGA ||
             event.biome == Biome.PLAINS ||
             event.biome == Biome.ICE_DESERT ||
             event.biome == Biome.TUNDRA) {
-
             event.biome.addPassiveEntity(SealEntity.class, 16);
         }
     }

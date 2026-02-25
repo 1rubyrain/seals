@@ -2,13 +2,12 @@ package in.rubyra.seals.client.render;
 
 import in.rubyra.seals.client.model.SealEntityModel;
 import in.rubyra.seals.entity.behavior.SealEntity;
-import net.minecraft.client.render.entity.CreeperEntityRenderer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.mob.CreeperEntity;
-import net.minecraft.util.math.MathHelper;
-import org.lwjgl.opengl.GL11;
 
+@Environment(EnvType.CLIENT)
 public class SealEntityRenderer extends LivingEntityRenderer {
     public SealEntityRenderer(SealEntityModel entityModel) {
         super(entityModel, 0.45F);

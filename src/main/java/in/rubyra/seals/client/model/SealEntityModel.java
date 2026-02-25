@@ -1,9 +1,12 @@
 package in.rubyra.seals.client.model;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.util.math.MathHelper;
 
+@Environment(EnvType.CLIENT)
 public class SealEntityModel extends EntityModel {
     public ModelPart body = new ModelPart(0, 0);
     public ModelPart nose = new ModelPart(26, 7);
@@ -19,47 +22,47 @@ public class SealEntityModel extends EntityModel {
     public SealEntityModel() {
         float off = 18;
 
-        this.body.addCuboid(-4, off, -5, 8, 6, 10);
-        this.body.setPivot(0, 0, 0);
+        body.addCuboid(-4, off, -5, 8, 6, 10);
+        body.setPivot(0, 0, 0);
 
-        this.nose.addCuboid(-2, off + 1, -1, 4, 2, 1);
-        this.nose.setPivot(0, 2, -5);
-
-
-        this.frontFlipperLeft.addCuboid(0, 0, -1, 1, 2, 2);
-        this.frontFlipperLeft.setPivot(-5, off + 4, 0);
-
-        this.frontFlipperRight.addCuboid(0, 0, 0, 1, 2, 2);
-        this.frontFlipperRight.setPivot(4, off + 4, -1);
-
-        this.backFlipperLeft.addCuboid(-1, off + 3, 0, 1, 2, 3);
-        this.backFlipperLeft.setPivot(0, 1, 5);
-        this.backFlipperLeft.yaw = -5F / (180F / (float)Math.PI);
-
-        this.backFlipperRight.addCuboid(0, off + 3, 0, 1, 2, 3);
-        this.backFlipperRight.setPivot(0, 1, 5);
-        this.backFlipperRight.yaw = 5F / (180F / (float)Math.PI);
+        nose.addCuboid(-2, off + 1, -1, 4, 2, 1);
+        nose.setPivot(0, 2, -5);
 
 
-        this.hatBrim.addCuboid(-3, off - 1, -4, 6, 1, 6);
-        this.hatBrim.setPivot(0, 0, 0);
+        frontFlipperLeft.addCuboid(0, 0, -1, 1, 2, 2);
+        frontFlipperLeft.setPivot(-5, off + 4, 0);
 
-        this.hatTop.addCuboid(-2, off - 5, -3, 4, 4, 4);
-        this.hatTop.setPivot(0, 0, 0);
+        frontFlipperRight.addCuboid(0, 0, 0, 1, 2, 2);
+        frontFlipperRight.setPivot(4, off + 4, -1);
+
+        backFlipperLeft.addCuboid(-1, off + 3, 0, 1, 2, 3);
+        backFlipperLeft.setPivot(0, 1, 5);
+        backFlipperLeft.yaw = -5F / (180F / (float)Math.PI);
+
+        backFlipperRight.addCuboid(0, off + 3, 0, 1, 2, 3);
+        backFlipperRight.setPivot(0, 1, 5);
+        backFlipperRight.yaw = 5F / (180F / (float)Math.PI);
+
+
+        hatBrim.addCuboid(-3, off - 1, -4, 6, 1, 6);
+        hatBrim.setPivot(0, 0, 0);
+
+        hatTop.addCuboid(-2, off - 5, -3, 4, 4, 4);
+        hatTop.setPivot(0, 0, 0);
     }
 
     public void render(float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch, float scale) {
-        this.setAngles(limbAngle, limbDistance, animationProgress, headYaw, headPitch, scale);
-        this.body.render(scale);
-        this.nose.render(scale);
+        setAngles(limbAngle, limbDistance, animationProgress, headYaw, headPitch, scale);
+        body.render(scale);
+        nose.render(scale);
 
-        this.frontFlipperLeft.render(scale);
-        this.frontFlipperRight.render(scale);
-        this.backFlipperLeft.render(scale);
-        this.backFlipperRight.render(scale);
+        frontFlipperLeft.render(scale);
+        frontFlipperRight.render(scale);
+        backFlipperLeft.render(scale);
+        backFlipperRight.render(scale);
 
-        this.hatBrim.render(scale);
-        this.hatTop.render(scale);
+        hatBrim.render(scale);
+        hatTop.render(scale);
     }
 
     public void setAngles(float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch, float scale) {
@@ -71,7 +74,6 @@ public class SealEntityModel extends EntityModel {
     }
 
     public void setDapper(boolean dapper) {
-        hatBrim.hidden = !dapper;
-        hatTop.hidden = !dapper;
+        hatBrim.hidden = hatTop.hidden = !dapper;
     }
 }

@@ -3,7 +3,6 @@ package in.rubyra.seals.entity.behavior;
 import in.rubyra.seals.SealsMod;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.mob.CreeperEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -18,13 +17,10 @@ public class SealEntity extends AnimalEntity {
         super(world);
 
         texture = "seals:textures/entities/seal.png";
-        setBoundingBoxSpacing(0.4F, 0.3F);
+        setBoundingBoxSpacing(0.5F, 0.35F);
 
         maxHealth = 30;
         health = 15;
-
-        width = 0.4F;
-        height = 0.3F;
 
         maxAir = air = 36000;
         blocksSameBlockSpawning = false;
@@ -63,24 +59,25 @@ public class SealEntity extends AnimalEntity {
                 ? 10.0F : world.method_1782(x, y, z) - 0.5F;
     }
 
+    public boolean isValidSpawnBlock(int spawnX, int spawnY, int spawnZ) {
+        int floorBlockId = world.getBlockId(spawnX, spawnY - 1, spawnZ);
+        if (floorBlockId == Block.SAND.id || floorBlockId == Block.GRAVEL.id) {
+            return true;
+        }
+        // only allow spawning on grass if snow layer above
+        if (floorBlockId == Block.GRASS_BLOCK.id) {
+            int collidingBlockId = world.getBlockId(spawnX, spawnY, spawnZ);
+            return collidingBlockId == Block.SNOW.id;
+        }
+        return false;
+    }
     public boolean canSpawn() {
         int spawnX = MathHelper.floor(x);
         int spawnY = MathHelper.floor(boundingBox.minY);
         int spawnZ = MathHelper.floor(z);
 
-        int floorBlockId = world.getBlockId(spawnX, spawnY - 1, spawnZ);
-        if (floorBlockId != Block.SAND.id) {
-            // allow spawning on grass if snow layer above
-            if (floorBlockId != Block.GRASS_BLOCK.id) {
-                return false;
-            }
-            int collidingBlockId = world.getBlockId(spawnX, spawnY, spawnZ);
-            if (collidingBlockId != Block.SNOW.id) {
-                return false;
-            }
-        }
-        SealsMod.LOGGER.info("hello i spawn");
-        return world.getBrightness(spawnX, spawnY, spawnZ) > 5 &&
+        return isValidSpawnBlock(spawnX, spawnY, spawnZ) &&
+               world.getBrightness(spawnX, spawnY, spawnZ) > 5 &&
                world.canSpawnEntity(boundingBox);
     }
 
