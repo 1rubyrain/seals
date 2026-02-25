@@ -171,8 +171,9 @@ public class SealEntity extends AnimalEntity {
 
         if (selectedItem.itemId == Item.FEATHER.id) {
             player.inventory.removeStack(player.inventory.selectedSlot, 1);
-            if (!world.isRemote)
+            if (!world.isRemote) {
                 sneeze();
+            }
             return true;
         }
 
@@ -185,14 +186,14 @@ public class SealEntity extends AnimalEntity {
             return true;
         }
 
-        if (SealsMod.SEALS_CONFIG.blackWoolGivesSealsHats) {
-            if (selectedItem.itemId == Block.WOOL.id && selectedItem.getDamage() == 15) {// black
-                if (!isDapper()) {
-                    player.inventory.removeStack(player.inventory.selectedSlot, 1);
-                    setDapper(true);
-                    return true;
-                }
+        if (SealsMod.SEALS_CONFIG.blackWoolGivesSealsHats &&
+            selectedItem.itemId == Block.WOOL.id &&
+            selectedItem.getDamage() == 15) { // black
+            if (!isDapper()) {
+                player.inventory.removeStack(player.inventory.selectedSlot, 1);
+                setDapper(true);
             }
+            return true;
         }
 
         return false;

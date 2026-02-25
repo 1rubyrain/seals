@@ -3,8 +3,8 @@
   "id": "seals",
   "version": "${version}",
 
-  "name": "seals",
-  "description": "yaaay seals",
+  "name": "seals!!!",
+  "description": "Adds baby harp seal passive mob, jumping on them behaves similarly to slime blocks from later versions",
   "authors": [
     "ruby rain"
   ],
@@ -23,8 +23,7 @@
       "in.rubyra.seals.SealsMod"
     ],
     "stationapi:event_bus_client": [
-      "in.rubyra.seals.client.EntityRendererListener",
-      "in.rubyra.seals.texture.TextureListener"
+      "in.rubyra.seals.client.EntityRendererListener"
     ],
     "stationapi:event_bus_server": [
     ],
