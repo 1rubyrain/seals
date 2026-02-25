@@ -1,6 +1,7 @@
 package in.rubyra.seals.entity.behavior;
 
 import in.rubyra.seals.SealsMod;
+import in.rubyra.seals.entity.EntityListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.passive.AnimalEntity;
@@ -10,9 +11,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.modificationstation.stationapi.api.server.entity.HasTrackingParameters;
+import net.modificationstation.stationapi.api.server.entity.MobSpawnDataProvider;
+import net.modificationstation.stationapi.api.util.Identifier;
 
 
-public class SealEntity extends AnimalEntity {
+@HasTrackingParameters(trackingDistance = 160, updatePeriod = 2)
+public class SealEntity extends AnimalEntity implements MobSpawnDataProvider {
     public SealEntity(World world) {
         super(world);
 
@@ -154,8 +159,11 @@ public class SealEntity extends AnimalEntity {
     public void sneeze() {
         world.playSound(x, y, z, "seals:mob.sealsneeze", 4.0F,
                 (random.nextFloat() - random.nextFloat()) * 0.2F + 1.0F);
-        world.createExplosion(this, x, y, z, 1F, false);
-        dropItem(Item.SLIMEBALL.id, 1);
+
+        if (!world.isRemote) {
+            world.createExplosion(this, x, y, z, 1F, false);
+            dropItem(Item.SLIMEBALL.id, 1);
+        }
     }
 
     //@Environment(EnvType.CLIENT)
@@ -171,9 +179,7 @@ public class SealEntity extends AnimalEntity {
 
         if (selectedItem.itemId == Item.FEATHER.id) {
             player.inventory.removeStack(player.inventory.selectedSlot, 1);
-            if (!world.isRemote) {
-                sneeze();
-            }
+            sneeze();
             return true;
         }
 
@@ -197,5 +203,10 @@ public class SealEntity extends AnimalEntity {
         }
 
         return false;
+    }
+
+    @Override
+    public Identifier getHandlerIdentifier() {
+        return Identifier.of(EntityListener.MOD_ID, "seal");
     }
 }

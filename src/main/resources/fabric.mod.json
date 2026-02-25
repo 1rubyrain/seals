@@ -4,12 +4,14 @@
   "version": "${version}",
 
   "name": "seals!!!",
-  "description": "Adds baby harp seal passive mob, jumping on them behaves similarly to slime blocks from later versions",
+  "description": "Adds baby harp seal passive mob that naturally spawns on beaches and in snowy areas",
   "authors": [
     "ruby rain"
   ],
   "contact": {
-    "homepage": "https://github.com/1rubyrain"
+    "homepage": "https://github.com/1rubyrain/seals/README.md",
+    "sources": "https://github.com/1rubyrain/seals",
+    "issues": "https://github.com/1rubyrain/seals/issues"
   },
 
   "license": "CC0-1.0",
@@ -18,14 +20,12 @@
   "environment": "*",
   "entrypoints": {
     "stationapi:event_bus": [
+      "in.rubyra.seals.SealsMod",
       "in.rubyra.seals.entity.EntityListener",
-      "in.rubyra.seals.entity.EntitySpawnListener",
-      "in.rubyra.seals.SealsMod"
+      "in.rubyra.seals.entity.EntitySpawnListener"
     ],
     "stationapi:event_bus_client": [
       "in.rubyra.seals.client.EntityRendererListener"
-    ],
-    "stationapi:event_bus_server": [
     ],
     "gcapi3": [
       "in.rubyra.seals.SealsMod"

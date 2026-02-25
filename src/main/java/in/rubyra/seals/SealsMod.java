@@ -12,8 +12,6 @@ import net.modificationstation.stationapi.api.util.Null;
 import org.apache.logging.log4j.Logger;
 
 public class SealsMod {
-    @Entrypoint.Namespace
-    public static Namespace MOD_ID = Null.get();
     @Entrypoint.Logger
     public static Logger LOGGER = Null.get();
 
@@ -29,7 +27,7 @@ public class SealsMod {
                 description = "If enabled, non-pushable entities will not be pushed by other entities")
         public Boolean enablePushableEntityBugFix = true;
     }
-    @ConfigRoot(value = "config", visibleName = "Seals Config", index = 0)
+    @ConfigRoot(value = "config", visibleName = "seals!!! Options", index = 0)
     public static final SealsConfig SEALS_CONFIG = new SealsConfig();
 
     @EventListener

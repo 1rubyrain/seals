@@ -28,7 +28,7 @@ public class PlayerEntityMixin extends LivingEntity {
     @Unique
     private double checkSealCollision() {
 
-        var EntList = world.getEntities(this, boundingBox.expand(0.275, 0.5, 0.275));
+        var EntList = world.getEntities(this, boundingBox.expand(0, 0.5, 0));
         if (EntList == null)
             return 0;
 
