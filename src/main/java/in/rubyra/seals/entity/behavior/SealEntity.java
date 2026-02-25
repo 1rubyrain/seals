@@ -28,7 +28,6 @@ public class SealEntity extends AnimalEntity implements MobSpawnDataProvider {
         health = 15;
 
         maxAir = air = 36000;
-        blocksSameBlockSpawning = false;
 
         setDapper(random.nextInt(500) == 0);
     }
@@ -56,7 +55,8 @@ public class SealEntity extends AnimalEntity implements MobSpawnDataProvider {
     }
 
     protected boolean canDespawn() {
-        return !isDapper();
+        return SealsMod.SEALS_CONFIG.sealsWithHatsDespawn
+                ? super.canDespawn() : !isDapper();
     }
 
     protected float getPathfindingFavor(int x, int y, int z) {
