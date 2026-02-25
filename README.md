@@ -1,8 +1,6 @@
 # seals!!!
 minecraft beta 1.7.3 mod that adds baby harp seals as a passive mob
-[download](https://github.com/1rubyrain/seals/releases)
-
-i made this for fun but feel free to open any issues and i will see if i can help
+### [downloads](https://github.com/1rubyrain/seals/releases)
 
 ## features
 - naturally spawning on beaches & in snowy areas
@@ -16,3 +14,5 @@ i made this for fun but feel free to open any issues and i will see if i can hel
 ## planned features
 - wiktor said make the seal squish when you land on it
 - random hat colour / dyeable hats
+
+i made this for fun but feel free to open any issues and i will see if i can help
