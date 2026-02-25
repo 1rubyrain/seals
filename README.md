@@ -1,4 +1,4 @@
-# seals!!!
+# <img width="40" height="40" alt="icon" src="https://github.com/user-attachments/assets/460f234b-36c8-48cd-be95-6d65d87b5e10" /> seals!!!
 minecraft beta 1.7.3 mod that adds baby harp seals as a passive mob
 ### [downloads](https://github.com/1rubyrain/seals/releases)
 
@@ -15,7 +15,13 @@ minecraft beta 1.7.3 mod that adds baby harp seals as a passive mob
 - i had to fix a bug relating to entities being pushable, thought i'd make the fix optional in case it's incompatible with other mods (on by default)
 
 ## screenshots
-todo
+<img width="726" height="485" alt="hiding" src="https://github.com/user-attachments/assets/48710a06-14ff-43a1-aa54-1bcefb987629" />
+<img width="854" height="480" alt="fis" src="https://github.com/user-attachments/assets/2cdadfdf-7970-4012-bc4e-49e7f953c594" />
+
+
+https://github.com/user-attachments/assets/d22f7a75-8558-49a2-afb2-61168669960d
+
+
 
 i made this for fun but feel free to open any issues and i will see if i can help
 
