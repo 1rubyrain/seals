@@ -27,6 +27,7 @@ public class SealEntity extends AnimalEntity {
         height = 0.3F;
 
         maxAir = air = 36000;
+        blocksSameBlockSpawning = false;
 
         setDapper(random.nextInt(500) == 0);
     }
@@ -53,10 +54,13 @@ public class SealEntity extends AnimalEntity {
         this.dataTracker.set(16, (byte)(dapper ? 1 : 0));
     }
 
+    protected boolean canDespawn() {
+        return !isDapper();
+    }
+
     protected float getPathfindingFavor(int x, int y, int z) {
         return world.getBlockId(x, y - 1, z) == Block.SAND.id
-                ? 10.0F
-                : world.method_1782(x, y, z) - 0.5F;
+                ? 10.0F : world.method_1782(x, y, z) - 0.5F;
     }
 
     public boolean canSpawn() {
@@ -64,12 +68,10 @@ public class SealEntity extends AnimalEntity {
         int spawnY = MathHelper.floor(boundingBox.minY);
         int spawnZ = MathHelper.floor(z);
 
-        // broken atm
         int floorBlockId = world.getBlockId(spawnX, spawnY - 1, spawnZ);
         if (floorBlockId != Block.SAND.id) {
-
             // allow spawning on grass if snow layer above
-            if (floorBlockId != Block.GRASS.id) {
+            if (floorBlockId != Block.GRASS_BLOCK.id) {
                 return false;
             }
             int collidingBlockId = world.getBlockId(spawnX, spawnY, spawnZ);
@@ -77,7 +79,7 @@ public class SealEntity extends AnimalEntity {
                 return false;
             }
         }
-
+        SealsMod.LOGGER.info("hello i spawn");
         return world.getBrightness(spawnX, spawnY, spawnZ) > 5 &&
                world.canSpawnEntity(boundingBox);
     }

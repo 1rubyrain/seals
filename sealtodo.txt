@@ -2,5 +2,4 @@
 - check if dapper seals replicate properly
 - check if sneeze replicate properly
 - check if option for seals dropping sponges replicate properly
-- add seals naturally spawning
 - maybe random hat colour?
