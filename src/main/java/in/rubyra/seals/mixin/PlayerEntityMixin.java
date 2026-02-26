@@ -27,7 +27,6 @@ public class PlayerEntityMixin extends LivingEntity {
     // returns new velocity (or 0 if no seal)
     @Unique
     private double checkSealCollision() {
-
         var EntList = world.getEntities(this, boundingBox.expand(0, 0.5, 0));
         if (EntList == null)
             return 0;
@@ -39,39 +38,27 @@ public class PlayerEntityMixin extends LivingEntity {
             if (ent instanceof SealEntity seal) {
                 if (seal.dead)
                     continue;
-
                 return velocityY * -0.999;
             }
         }
-
         return 0;
     }
 
-
-    // this crap code is because a player can pass over a seal in a single tick without intersecting hitboxes
-    // (similar to bljs in sm64)
     @Inject(method = "onLanding", at = @At("HEAD"), cancellable = true)
     public void onLanding(float fallDistance, CallbackInfo ci) {
-
         double newVelocity = checkSealCollision();
-        if (newVelocity == 0)
+        if (newVelocity == 0) {
             return;
+        }
 
         ci.cancel();
+        // velocity gets set right after falling so i'm just storing it and setting it next tick
         pendingVelocity = newVelocity;
     }
     @Inject(method = "tickMovement", at = @At("HEAD"))
     public void tickMovement(CallbackInfo ci) {
-
-        if (pendingVelocity == 0)
-        {
-            // if we arent falling dont bother checking
-            if (velocityY > -0.25)
-                return;
-
-            pendingVelocity = checkSealCollision();
-            if (pendingVelocity == 0)
-                return;
+        if (pendingVelocity == 0) {
+            return;
         }
 
         fallDistance = 0;

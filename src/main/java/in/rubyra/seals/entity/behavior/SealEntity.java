@@ -4,11 +4,13 @@ import in.rubyra.seals.SealsMod;
 import in.rubyra.seals.entity.EntityListener;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.math.Box;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.modificationstation.stationapi.api.server.entity.HasTrackingParameters;
@@ -84,6 +86,16 @@ public class SealEntity extends AnimalEntity implements MobSpawnDataProvider {
         return isValidSpawnBlock(spawnX, spawnY, spawnZ) &&
                world.getBrightness(spawnX, spawnY, spawnZ) > 5 &&
                world.canSpawnEntity(boundingBox);
+    }
+
+    public Box getCollisionAgainstShape(Entity other) {
+        return other.boundingBox;
+    }
+    public Box getBoundingBox() {
+        return boundingBox;
+    }
+    public boolean isCollidable() {
+        return !dead;
     }
 
     private int jumpCooldownTicks = 0;
