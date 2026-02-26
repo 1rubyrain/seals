@@ -28,12 +28,13 @@ i made this for fun but feel free to open any issues and i will see if i can hel
 <details>
 <summary><b>planned features</b></summary>
 
+- casey said make it so you can pick them up in a bucket and make a seal hat that keeps them alive and then players can jump on your head and bounce
 - wiktor said make the seal squish when you land on it
 - random hat colour / dyeable hats
 
 </details>
 
 ## credits
-ideas: layla & wiktor
+ideas: layla
 
 sounds: [National Geographic](https://www.instagram.com/p/B9kDyYuFgmn) & [ViralHog](https://www.youtube.com/watch?v=XI-IcTpHpDg)
