@@ -1,5 +1,5 @@
 # <img width="40" height="40" alt="icon" src="https://github.com/user-attachments/assets/460f234b-36c8-48cd-be95-6d65d87b5e10" /> seals!!!
-minecraft beta 1.7.3 mod that adds baby harp seals as a passive mob
+minecraft beta 1.7.3 babric mod that adds baby harp seals as a passive mob
 ### [downloads](https://github.com/1rubyrain/seals/releases)
 
 ## features
