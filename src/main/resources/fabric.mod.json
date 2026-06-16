@@ -37,8 +37,8 @@
 
   "depends": {
     "minecraft": "1.0.0-beta.7.3",
-    "stationapi": ">=2.0.0-alpha.4",
-    "gcapi3": ">=3.0.1",
-    "glassnetworking": ">=1.0.3"
+    "stationapi": ">=2.0.0-alpha.6.2",
+    "gcapi3": ">=3.2.5",
+    "glassnetworking": ">=1.0.7"
   }
 }

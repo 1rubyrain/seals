@@ -3,13 +3,10 @@
 //file:noinspection ForeignDelegate
 plugins {
 	id 'maven-publish'
-	id 'fabric-loom' version '1.10.5'
-	id 'babric-loom-extension' version '1.10.1'
+	id 'fabric-loom' version '1.16.2'
+	id 'babric-loom-extension' version '1.15.3'
 }
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
 
@@ -140,7 +137,7 @@ java {
 
 jar {
 	from("LICENSE") {
-		rename { "${it}_${project.archivesBaseName}"}
+		rename { "${it}_${project.archives_base_name}"}
 	}
 }
 
